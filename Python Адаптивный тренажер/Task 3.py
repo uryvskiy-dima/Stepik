@@ -14,16 +14,6 @@ print(lst)               # [5, 4]
 """
 
 
-def modify_list(l):
-    index = 0
-    while index < len(l):
-        if l[index] % 2 == 0:
-            l[index] //= 2
-        else:
-            del l[index]
-            index -= 1
-        index += 1
+def modify_list(lst):
+    lst[:] = [value // 2 for value in lst if value % 2 == 0]
 
-# или другой вариант через list comprehension
-# def modify_list(l):
-    # l[:] = [value //2 for value in l if value % 2 == 0]
