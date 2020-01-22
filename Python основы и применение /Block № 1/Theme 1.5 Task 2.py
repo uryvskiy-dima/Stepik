@@ -50,4 +50,3 @@ class Buffer:
 
     def get_current_part(self):
         return self.lst
-

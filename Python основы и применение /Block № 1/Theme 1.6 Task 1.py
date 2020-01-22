@@ -56,11 +56,12 @@ Yes
 No
 """
 
+
 def find(parent, child):
-    '''
+    """
      имя родителя и потомка совпадают A = A
      или потомок наследуется от родителя
-    '''
+    """
     if parent == child or parent in dict_class[child]:
         return 'Yes'
     for value in dict_class[child]:  # проход по родителям потомкам

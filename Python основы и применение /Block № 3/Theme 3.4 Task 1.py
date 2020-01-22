@@ -58,4 +58,3 @@ def find_links():
 
 a, b = input().strip(), input().strip()
 print(find_links())
-

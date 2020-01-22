@@ -11,9 +11,7 @@
 Пример использования:
 print(list(itertools.takewhile(lambda x : x <= 31, primes())))
 # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
-"""
 
-"""
 Теорема Вильсона
 Натуральное число  p > 1 является простым тогда и только тогда,
 когда (p - 1) ! + 1  делится на p.
@@ -36,4 +34,4 @@ def primes():
 
 
 # Пример использования:
-print(list(itertools.takewhile(lambda x : x <= 31, primes())))
+print(list(itertools.takewhile(lambda x: x <= 31, primes())))

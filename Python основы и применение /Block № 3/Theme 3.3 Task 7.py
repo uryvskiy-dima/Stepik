@@ -17,6 +17,7 @@ argh AaAaAaA
 
 import re
 import sys
+
 pattern = r"([aA])+\b"
 for line in sys.stdin:
     line = line.rstrip()

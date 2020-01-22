@@ -39,5 +39,5 @@ def set_algol(n, k):
     return set_algol(n - 1, k) + set_algol(n - 1, k - 1)
 
 
-n, k = map(int, input().split())
-print(set_algol(n, k))
+n_inp, k_inp = map(int, input().split())
+print(set_algol(n_inp, k_inp))

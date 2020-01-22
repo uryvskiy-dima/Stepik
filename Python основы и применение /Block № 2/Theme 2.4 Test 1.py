@@ -10,6 +10,7 @@
 
 
 import os.path
+
 previous_dir = ""  # для отслеживания одинаковых директорий
 with open("1.txt", "w") as out:
     for current_dir, dirs, files in os.walk("main"):

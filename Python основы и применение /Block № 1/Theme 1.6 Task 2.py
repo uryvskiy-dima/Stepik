@@ -37,4 +37,4 @@ class ExtendedStack(list):
         self.append(self.pop() * self.pop())
 
     def div(self):
-        self.append(self.pop() // self.pop())  
+        self.append(self.pop() // self.pop())

@@ -29,6 +29,7 @@ B : 1
 C : 2
 """
 
+
 import json
 
 
@@ -61,4 +62,3 @@ for key, value in dict_input.items():
 
 for value_sort in sorted(dict_result.keys()):
     print(f"{value_sort} : {dict_result[value_sort]}")
-

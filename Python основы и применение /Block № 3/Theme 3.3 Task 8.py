@@ -15,6 +15,7 @@ htis si a etxt
 
 import re
 import sys
+
 pattern = r"\b(\w)(\w)"
 for line in sys.stdin:
     line = line.rstrip()
