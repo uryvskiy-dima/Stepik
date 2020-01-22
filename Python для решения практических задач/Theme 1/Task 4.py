@@ -11,8 +11,4 @@ from urllib.request import urlopen
 html = urlopen("https://stepik.org/media/attachments/lesson/209723/3.html").read().decode('utf-8')
 soup = BeautifulSoup(str(html), 'html.parser')
 
-sum_table = 0
-for table in soup.find_all('td'):
-    sum_table += int(table.text)
-
-print(sum_table)
+print(sum([int(table.text) for table in soup.find_all('td')]))
