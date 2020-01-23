@@ -7,7 +7,7 @@ https://stepik.org/media/attachments/lesson/245266/tab.xlsx и создать в
 
 import xlrd
 
-wb = xlrd.open_workbook('tab_for_task1.xlsx')
+wb = xlrd.open_workbook('tab_for_task_1.xlsx')
 sheet_names = wb.sheet_names()
 sh = wb.sheet_by_name(sheet_names[0])
 nmin = sh.row_values(6)[2]
