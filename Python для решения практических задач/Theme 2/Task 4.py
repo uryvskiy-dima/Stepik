@@ -16,10 +16,16 @@ import math
 
 read_file = xlrd.open_workbook('tab_for_task_4.xlsx')
 sheet = read_file.sheet_by_index(1)
-count_product = {sheet.row_values(row)[0]: sheet.row_values(row)[1] for row in range(1, sheet.nrows)}
+count_product = {}
+
+for row in range(1, sheet.nrows):
+    if sheet.row_values(row)[0] in count_product.keys():
+        count_product[sheet.row_values(row)[0]] = sheet.row_values(row)[1] * 2
+    else:
+        count_product[sheet.row_values(row)[0]] = sheet.row_values(row)[1]
+
 
 sheet = read_file.sheet_by_index(0)
-
 result = {}
 
 for row in range(1, sheet.nrows):
@@ -31,16 +37,15 @@ res = [0, 0, 0, 0]
 for key, value in count_product.items():
     for i in range(len(result[key])):
         if result[key][i] != '':
-            res[i] += result[key][i] * (value)
+            res[i] += result[key][i] * (value / 100)
         else:
             res[i] += 0
+
 
 
 for element in res:
     print(math.floor(element), end=' ')
 
-print(count_product)
-print(result)
 
 
 
