@@ -20,5 +20,3 @@ result = {sheet.row_values(row)[0]: sheet.row_values(row)[1] for row in range(1,
 
 for name_product in sorted(result.items(), key=lambda x: (-x[1], x[0])):
     print(name_product[0])
-
-

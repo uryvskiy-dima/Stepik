@@ -36,8 +36,3 @@ for key, value in product.items():
         res[i] += result[key][i] * (value / 100) if result[key][i] != '' else 0
 
 print(*map(math.floor, res))
-
-
-
-
-
