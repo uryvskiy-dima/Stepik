@@ -6,11 +6,9 @@ https://stepik.org/media/attachments/lesson/245571/map1.osm, создать в �
 
 
 import xmltodict
-import wget
-import os
+import urllib.request
 
-filename = wget.download('https://stepik.org/media/attachments/lesson/245571/map1.osm')
-os.rename(filename, f'{os.getcwd()}/{filename}')
+urllib.request.urlretrieve('https://stepik.org/media/attachments/lesson/245571/map1.osm', 'map1.osm')
 
 with open('map1.osm', 'r', encoding='utf8') as fin:
     xml = fin.read()

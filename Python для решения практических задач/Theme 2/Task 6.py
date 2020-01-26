@@ -12,11 +12,9 @@
 
 import xlrd
 import zipfile
-import wget
-import os
+import urllib.request
 
-filename = wget.download('https://stepik.org/media/attachments/lesson/245299/rogaikopyta.zip')
-os.rename(filename, f'{os.getcwd()}/{filename}')
+urllib.request.urlretrieve('https://stepik.org/media/attachments/lesson/245299/rogaikopyta.zip', 'rogaikopyta.zip')
 
 person = {}
 with zipfile.ZipFile('rogaikopyta.zip', 'r') as archive:
