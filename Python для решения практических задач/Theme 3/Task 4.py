@@ -14,8 +14,7 @@ root = tree.getroot()
 count_fuel = 0
 for val in root:
     for el_tag in val:
-        if el_tag.tag is not None:
-            if 'fuel' in el_tag.attrib.values():
-                count_fuel += 1
+        if 'fuel' in el_tag.attrib.values():
+            count_fuel += 1
 
 print(count_fuel)
