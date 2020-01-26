@@ -12,9 +12,8 @@ tree = xml.etree.ElementTree.parse('map2.osm')
 root = tree.getroot()
 
 count_fuel = 0
-for val in root:
-    for el_tag in val:
-        if 'fuel' in el_tag.attrib.values():
-            count_fuel += 1
+for val in root.iter():
+    if 'fuel' in val.attrib.values():
+        count_fuel += 1
 
 print(count_fuel)
