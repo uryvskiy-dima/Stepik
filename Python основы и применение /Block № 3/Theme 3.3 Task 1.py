@@ -25,8 +25,7 @@ cat and cat
 import sys
 import re
 
-pattern = r".*cat.*cat.*"
 for line in sys.stdin:
     line = line.rstrip()
-    if re.search(pattern, line) is not None:
+    if re.search(r"cat.*cat", line) is not None:
         print(line)
