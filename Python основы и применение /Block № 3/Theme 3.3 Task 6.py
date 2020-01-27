@@ -15,7 +15,6 @@ computerity
 import sys
 import re
 
-pattern = r"human"
 for line in sys.stdin:
     line = line.rstrip()
-    print(re.sub(pattern, "computer", line))
+    print(re.sub(r"human", "computer", line))
