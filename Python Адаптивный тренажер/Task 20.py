@@ -18,10 +18,20 @@ Sample Output:
 """
 
 
-import numpy
 n = int(input())
-
-matrix = [[j for j in range(n)] for i in range(n)]
-indexes = [(i // 4, (i + 3) // 4) for i in range(n ** 2 - 1)]
-print(indexes)
-
+result = [[0] * n for i in range(n)]
+i, j = 0, 0
+for k in range(1, n * n + 1):
+    result[i][j] = k
+    if k == n * n:
+        break
+    if i <= j+1 and i + j < n - 1:
+        j += 1
+    elif i < j and i + j >= n-1:
+        i += 1
+    elif i >= j and i + j > n-1:
+        j -= 1
+    elif i > j + 1 and i+j <= n-1:
+        i -= 1
+for i in range(n):
+    print(*result[i])
