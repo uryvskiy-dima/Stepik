@@ -18,10 +18,13 @@ import math
 read_file = xlrd.open_workbook('tab_for_task_5.xlsx')
 sheet = read_file.sheet_by_index(1)
 
-product = {}
+product = {int(sheet.row_values(row)[0]): [] for row in range(1, sheet.nrows)}
 for row in range(1, sheet.nrows):
-    value = sheet.row_values(row)
-    product[int(value[0])] = (value[1], value[2] * 2) if int(value[0]) in product.keys() else (value[1], value[2])
+    key, *value = sheet.row_values(row)
+    if value[0] in product[key]:
+        product[key][product[key].index(value[0]) + 1] += value[1]
+    else:
+        product[key] += [value[0], value[1]]
 
 sheet = read_file.sheet_by_index(0)
 result = {}
@@ -31,10 +34,10 @@ for row in range(1, sheet.nrows):
     result[value_p[0]] = [value_p[1], value_p[2], value_p[3], value_p[4]]
 
 res = {key: [0, 0, 0, 0] for key in product.keys()}
-
-print(res)
 for key, value in product.items():
     for i in range(len(result[value[0]])):
-        res[key][i] += result[value[0]][i] * (value[1] / 100) if result[value[0]][i] != '' else 0
+        for index in range(1, len(value), 2):
+            res[key][i] += result[value[index - 1]][i] * (value[index] / 100) if result[value[index - 1]][i] != '' else 0
 
-print(res)
+for key, value in res.items():
+    print(*map(math.floor, value))
