@@ -21,9 +21,8 @@ abc 2
 """
 
 
-result = {}
-for element in input().lower().split():
-    result[element] = result.get(element, 0) + 1
+string = input().lower().split()
+result = {element: string.count(element) for element in string}
 
 for key, value in result.items():
     print(key, value)
