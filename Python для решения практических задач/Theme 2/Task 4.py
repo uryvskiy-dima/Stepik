@@ -20,7 +20,7 @@ sheet = read_file.sheet_by_index(1)
 product = {}
 for row in range(1, sheet.nrows):
     value = sheet.row_values(row)
-    product[value[0]] = value[1] * 2 if sheet.row_values(row)[0] in product.keys() else value[1]
+    product[value[0]] = value[1] * 2 if value[0] in product.keys() else value[1]
 
 sheet = read_file.sheet_by_index(0)
 
