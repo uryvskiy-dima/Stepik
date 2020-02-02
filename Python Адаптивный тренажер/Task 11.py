@@ -37,9 +37,7 @@ Result: "abc"
 
 
 symbols = ' abcdefghijklmnopqrstuvwxyz'
-shift = int(input())
-str_input = input().strip()
-result = ""
+shift, str_input, result = int(input()), input().strip(), ""
 for symbol in str_input:
     result += symbols[(symbols.index(symbol) + shift) % 27]
     # 27 для циклического сдвига, 27 % 27 = 0, 28 % 27 = 1 и так далее
