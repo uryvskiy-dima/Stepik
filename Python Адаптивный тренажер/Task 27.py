@@ -34,24 +34,9 @@ Jolly
 lst = list(map(int, input().split()))
 result = []
 
-index = 0
-while index < len(lst) - 1:
-    result.append(abs(lst[index] - lst[index + 1]))
-    index += 1
-
-flag = False
-if len(result) == len(lst) - 1:
-    for value in range(1, len(lst)):
-        if value in result:
-            flag = True
-        else:
-            flag = False
-            break
+for i in range(1, len(lst)):
+    result.append(abs(lst[i - 1] - lst[i]))
+if sorted(result) == [value for value in range(1, len(lst))]:
+    print('Jolly')
 else:
-    flag = False
-
-if flag or len(lst) == 1:
-    print("Jolly")
-else:
-    print("Not jolly")
-
+    print('Not jolly')
