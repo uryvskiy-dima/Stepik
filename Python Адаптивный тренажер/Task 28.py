@@ -33,7 +33,6 @@ Result: "😁😂😃😄😅😆😇😈😉😊😋😌😍😎😏😐😑�
 
 
 symbols = [n for n in range(128512, 128592)]
-shift, str_input, result = int(input()), input().strip(), ""
-for symbol in str_input:
-    result += chr(symbols[(symbols.index(ord(symbol)) + shift) % 27])
-print(rf"Result: \" {result}\"")
+shift, str_input = int(input()), input().strip()
+result = [chr(symbols[(symbols.index(ord(symbol)) + shift) % 80]) for symbol in str_input]
+print('Result: "' + ''.join([value for value in result]) + '"')
