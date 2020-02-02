@@ -41,4 +41,4 @@ shift, str_input, result = int(input()), input().strip(), ""
 for symbol in str_input:
     result += symbols[(symbols.index(symbol) + shift) % 27]
     # 27 для циклического сдвига, 27 % 27 = 0, 28 % 27 = 1 и так далее
-print(rf"Result: \" {result}\"")
+print(rf"Result: \"{result}\"")
