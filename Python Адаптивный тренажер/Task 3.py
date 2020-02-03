@@ -16,4 +16,3 @@ print(lst)               # [5, 4]
 
 def modify_list(lst):
     lst[:] = [value // 2 for value in lst if value % 2 == 0]
-

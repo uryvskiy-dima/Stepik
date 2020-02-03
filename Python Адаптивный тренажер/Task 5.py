@@ -32,4 +32,3 @@ matrix = [input().split() for i in range(n)]
 matrix_transpose = [[matrix[i][j] for i in range(n)] for j in range(m)]
 for elements in matrix_transpose:
     print(*elements)
-

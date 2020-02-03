@@ -43,4 +43,3 @@ try:
     print(act[operation](int(a), int(b)))
 except ZeroDivisionError:
     print("None")
-

@@ -28,5 +28,3 @@ Sample Output 3:
 
 string = input().replace(' ', '')
 print('{0:.2f}'.format(string.count('A') / len(string)))
-
-
