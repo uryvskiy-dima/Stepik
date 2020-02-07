@@ -21,3 +21,55 @@ turn 60
 turn -120
 turn 60
 """
+
+
+
+
+
+import turtle
+
+
+def koch_turns(n):
+    if n == 0:
+        turtle.forward(60)
+    else:
+        for angle in [60, - 120, 60, 0]:
+            koch_turns(n - 1)
+            turtle.left(angle)
+            if angle != 0:
+               print(angle)
+
+
+
+
+def turtle_koch_curve(n, speed, sw, sh):
+    window = turtle.Screen()  # создали окно
+    window.title('Koch curve')  # назвали
+    window.screensize(sw, sh)  # задали размер
+
+    mikey = turtle.Turtle()  # создали черепаху
+    mikey.speed(speed)  # скорость
+    mikey.up()
+    mikey.setpos(-sw // 2, -sh // 3)  # позиция
+    mikey.down()
+
+    # посчитали необходимую длину линии
+    length = sw * 3 // 10
+    for _ in range(n - 1):
+        length /= 3
+    try:
+        for move in koch_turns(n):
+            mikey.forward(length)
+            mikey.left(move)
+        mikey.forward(length)
+    except:
+        pass
+
+    window.exitonclick()  # выход из программы по клику на окно
+
+num = int(input('Deep of Koch:'))
+sp = int(input('Speed of drawing:'))
+width = int(input('Width of window:'))
+height = int(input('Height of window:'))
+
+turtle_koch_curve(num, sp, width, height)
