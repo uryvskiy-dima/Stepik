@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import math
 
 dpi = 80
-fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi) )
+fig = plt.figure(dpi=dpi, figsize=(512 / dpi, 384 / dpi))
 mpl.rcParams.update({'font.size': 10})
 
 plt.axis([0, 10, -1.5, 1.5])
@@ -31,10 +31,10 @@ while x < 10.0:
     xs += [x]
     x += 0.1
 
-plt.plot(xs, sin_vals, color = 'blue', linestyle = 'solid',
-         label = 'sin(3x)')
-plt.plot(xs, cos_vals, color = 'red', linestyle = 'dashed',
-         label = 'cos(x)')
+plt.plot(xs, sin_vals, color='blue', linestyle='solid',
+         label='sin(3x)')
+plt.plot(xs, cos_vals, color='red', linestyle='dashed',
+         label='cos(x)')
 
-plt.legend(loc = 'upper right')
+plt.legend(loc='upper right')
 fig.savefig('trigan.png')
