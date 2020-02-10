@@ -27,24 +27,22 @@ Sample Output:
 """
 
 
-n, m = map(int, input().split())
-start_field = [list(input()) for i in range(n)]
-lst = [[0 if start_field[i][j] != '*' else '*' for j in range(m)] for i in range(n)]
+def find_neighbors(i, j):
+    count = 0
+    for di in range(-1, 2):
+        for dj in range(-1, 2):
+            ai, aj = i + di, j + dj
+            if 0 <= ai < n and 0 <= aj < m and lst[ai][aj] == '*':
+                count += 1
+    return count
 
-for i in range(n):
-    for j in range(m):
-        if lst[i][j] == 0:
-            for di in range(-1, 2):
-                for dj in range(-1, 2):
-                    ai = i + di
-                    aj = j + dj
-                    if 0 <= ai < n and 0 <= aj < m and lst[ai][aj] == '*':
-                        lst[i][j] += 1
-# вывод результата
-for i in range(n):
-    for j in range(m):
-        if lst[i][j] == -1:
-            print('*', end='')
-        else:
-            print(lst[i][j], end='')
-    print()
+
+n, m = map(int, input().split())
+#  получил начальное поле
+start_field = [list(input()) for i in range(n)]
+#  получил поле с 0 и * для более удобной работы
+lst = [[0 if start_field[i][j] != '*' else '*' for j in range(m)] for i in range(n)]
+#  поиск соседей вокруг мины
+lst = [[find_neighbors(i, j) if lst[i][j] == 0 else '*' for j in range(m)] for i in range(n)]
+#  вывод результата
+[print(*row, sep='') for row in lst]
