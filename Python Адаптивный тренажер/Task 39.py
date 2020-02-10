@@ -27,48 +27,24 @@ Sample Output:
 """
 
 
-def find(x, y, el, el1):
-    try:
-        count = 0
-        for k in range(el, x):
-            for g in range(el1, y):
-                if field[k][g] == '*':
-                    count += 1
-    except IndexError:
-        if j != m - 1:
-            find((j + 1) - 2, j + 1, i, j)
-        elif m <= 2:
-            return find(2, 2, i, j - 1)
-    return count
-
-
 n, m = map(int, input().split())
-field = [list(input()) for i in range(n)]
-
+start_field = [list(input()) for i in range(n)]
+lst = [[0 if start_field[i][j] != '*' else '*' for j in range(m)] for i in range(n)]
 
 for i in range(n):
     for j in range(m):
-        if field[i][j] == '*':
-            continue
+        if lst[i][j] == 0:
+            for di in range(-1, 2):
+                for dj in range(-1, 2):
+                    ai = i + di
+                    aj = j + dj
+                    if 0 <= ai < n and 0 <= aj < m and lst[ai][aj] == '*':
+                        lst[i][j] += 1
+# вывод результата
+for i in range(n):
+    for j in range(m):
+        if lst[i][j] == -1:
+            print('*', end='')
         else:
-            if i == 0 and j == 0:  # +
-                field[i][j] = find(2, 2, i, j)
-            elif i == 0 and j == m - 1:  # +
-                field[i][j] = find(2, 3, i, j - 1)
-            elif (i == 0 and j != 0) and (j != m - 1):  # +
-                if j < 3:
-                    field[i][j] = find(2, 3, i, j - 1)
-                else:
-                    field[i][j] = find((j + 1) - 2, j + 3, i, j - 1)
-            elif i != 0 and j == 0:  # +
-                field[i][j] = find(3, 2, i - 1, j)
-            else:
-                field[i][j] = find(3, 3, i - 1, j - 1)  # +
-
-
-for element in field:
-    for j in element:
-        print(j, end='')
+            print(lst[i][j], end='')
     print()
-
-
