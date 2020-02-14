@@ -37,3 +37,24 @@ Sample Input:
 Sample Output:
 Royal Flush
 """
+
+
+carts = input().split()
+value = [i[:-1] for i in carts]
+suit = [i[-1] for i in carts]
+order = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+straights = [sorted([order[i] for i in range(j, j + 5)]) for j in range(9)]
+if len(set(suit)) == 1 and sorted(value) in straights:
+    print('Royal Flush' if 'A' in value else 'Straight Flush')
+elif len(set(value)) == 2:
+    print('Four of a Kind' if value.count(value[0]) in [1, 4] else 'Full House')
+elif len(set(suit)) == 1:
+    print('Flush')
+elif sorted(value) in straights:
+    print('Straight')
+elif len(set(value)) == 3:
+    print('Two Pairs' if 2 in [value.count(value[0]), value.count(value[1])] else 'Three of a Kind')
+elif len(set(value)) == 4:
+    print('Pair')
+else:
+    print('High Card')
