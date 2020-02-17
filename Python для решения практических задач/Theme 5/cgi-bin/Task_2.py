@@ -5,8 +5,8 @@ print()
 print("<html>")
 print("<body>")
 print("<table>")
-print("<tr>")
 for i in range(1, 11):
+    print("<tr>")
     for j in range(1, 11):
         print(f"<td>{i * j}</td>")
     print("</tr>")
