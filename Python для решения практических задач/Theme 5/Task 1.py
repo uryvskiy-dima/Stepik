@@ -19,7 +19,7 @@
 """
 
 
-#  код в файле HTML_for_Task_1.html
+#  код в файле Html_for_Task_1.html
 """
 <html>
 <body>
