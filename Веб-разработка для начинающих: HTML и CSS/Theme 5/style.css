@@ -25,6 +25,9 @@ td {
   border: 1px solid black;
 }
 
-figcaption {
-  font-style: italic;
+
+.img-float{
+    margin-left: 50px;
+    float: right;
+    font-style: italic;
 }
