@@ -1,5 +1,30 @@
-body{
-width: 70%;
+body {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 20px;
+}
 
-margin:0 auto;
+h1 h2 h3 {
+  font-family: Verdana, sans-serif;
+  margin-top: 1.5em;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+table {
+  border: 1px solid black;
+}
+
+th {
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+}
+
+figcaption {
+  font-style: italic;
 }
