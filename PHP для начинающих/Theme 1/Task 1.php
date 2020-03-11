@@ -1,4 +1,4 @@
 <?php
-    $x = 7;
-    echo $x;
+$x = 7;
+echo $x;
 ?>
