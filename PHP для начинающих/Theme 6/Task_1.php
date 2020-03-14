@@ -1,6 +1,5 @@
 <?php
-$line = stream_get_line(STDIN, 1024, PHP_EOL); 
-$numbers = explode(' ', $line); 
+$numbers = explode(" ", readline()); 
 $sum = 0;
 foreach($numbers as $number)
     if ($number)
