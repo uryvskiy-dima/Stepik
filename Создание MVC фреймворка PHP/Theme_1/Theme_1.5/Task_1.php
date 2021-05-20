@@ -5,9 +5,32 @@
 Также должен быть возможен вызов метода
 
 addPoints($point)
-, который должен прибавлять значение необязательного аргумента point к свойству point к свойств уpoints. А если же $point не был передан, то должна прибавляться единица.
+, который должен прибавлять значение необязательного аргумента point к свойству point к свойству points. А если же $point не был передан, то должна прибавляться единица.
 -->
 
 
 <?php
+
+class User
+{
+    private $points = 0;
+
+    public function __call($name, $arguments)
+    {
+        if ($name === 'addPoints') {
+            $this->points += count($arguments) == 0 ? 1 : $arguments[0];    
+        } else {
+            $this->points += filter_var($name, FILTER_SANITIZE_NUMBER_INT);
+        }
+    }
+
+    public function getPoints()
+    {
+        return $this->points;
+    }
+}
+
+$user = new User();
+$user->addPoints();
+echo $user->getPoints() . "\n";
 
